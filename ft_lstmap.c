@@ -6,7 +6,7 @@
 /*   By: kkikuchi <kkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 23:28:54 by kkikuchi          #+#    #+#             */
-/*   Updated: 2020/07/15 10:12:07 by kkikuchi         ###   ########.fr       */
+/*   Updated: 2020/07/17 00:49:34 by kkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		if (!(tmp->next = ft_lstnew((f)(lst->content))))
 			ft_lstclear(&new, del);
-		tmp = tmp->next;
+		tmp = tmp ->next;
 	}
 	return (new);
 }

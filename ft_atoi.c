@@ -6,7 +6,7 @@
 /*   By: kkikuchi <kkikuchi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 18:01:09 by kkikuchi          #+#    #+#             */
-/*   Updated: 2020/07/15 16:36:55 by kkikuchi         ###   ########.fr       */
+/*   Updated: 2020/11/13 00:54:26 by kkikuchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			ft_atoi(const char *str)
 {
 	int			i;
 	int			minus;
-	long long	ans;
+	unsigned long	ans;
 
 	ans = 0;
 	minus = 1;
@@ -41,9 +41,9 @@ int			ft_atoi(const char *str)
 	while (str[i] && ft_isdigit(str[i]))
 	{
 		ans = ans * 10 + (str[i++] - '0');
-		if (ans * minus > 2147483647)
+		if (ans * minus > __LONG_MAX__)
 			return (-1);
-		else if (ans * minus < -2147483648)
+		else if (ans > __LONG_MAX__ + 1 && minus == -1)
 			return (0);
 	}
 	return ((int)ans * minus);
